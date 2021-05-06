@@ -2,14 +2,12 @@
 <h1>Créer une tache à faire</h1>
 <%= link_to "Retour", :back, class:"btn btn-success" %>
 </nav>
-<%= form_for @todo do |f| %>
+<%= simple_form_for @todo do |f| %>
 <div class="form-group mb-3">
-  <%= label_tag(:title, "Titre" , class:"form-label" )%>
-  <%= f.text_field :title , class:"form-control"%>
+  <%= f.input :title, label: "Titre de la tâche", error: "Le titre est obligatoire" %>
 </div>
 <div class="form-group mb-3">
-  <%= label_tag(:description, "Description", class:"form-label") %> 
-  <%= f.text_area :description , class:"form-control" %>
+  <%= f.input :description, :as =>:text,label: "Description", input_html: {cols:5, rows:5} %>
   </div>
   <%= f.submit "Valider" , class:"btn btn-primary"%>
 <% end %>
