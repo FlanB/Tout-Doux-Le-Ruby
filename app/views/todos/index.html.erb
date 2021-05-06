@@ -1,0 +1,16 @@
+<nav class="d-flex justify-content-between align-items-center mb-4">
+<h1> To Do List </h1>
+<%= link_to "New Todo Item", new_todo_path, class:"btn btn-success" %>
+</nav>
+
+<ul class="list-group">
+<% @todos.each do |todo| %>
+    <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+      <h3 ><%= link_to todo.title, todo_path(todo.id), class:"text-primary text-decoration-none"%></h3>
+      <div>
+        <%= link_to "Modifier", edit_todo_path(todo[:id]), class:"btn btn-primary" %>
+        <%= link_to "Supprimer", todo, method: :delete, data: { confirm: "Vraiment ?", disable_with: "En cours..." }, class:"btn btn-danger"%>
+      </div>
+    </li>
+<% end %>
+<%= link_to "New Todo Item", new_todo_path, class:"btn btn-success mt-2" %>
