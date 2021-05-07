@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_201421) do
   enable_extension "plpgsql"
 
   create_table "todos", force: :cascade do |t|
+    t.boolean "checked"
     t.string "title"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
