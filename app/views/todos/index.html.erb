@@ -2,8 +2,12 @@
 <h1> To Do List Pour Tout Le Monde</h1>
 <div>
 <%= link_to "Nouvelle tâche", new_todo_path, class:"btn btn-success" %>
+<% if account_signed_in? %>
+ <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"btn btn-secondary mr-2" %>
+    <%else%>
 <%= link_to "Connexion", new_user_session_path, class:"btn btn-primary" %>
 <%= link_to "S'inscrire", new_user_registration_path, class:"btn btn-primary" %>
+<%end%>
 </div>
 </nav>
 
@@ -11,6 +15,7 @@
 <% @todos.each do |todo| %>
     <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
     <input style="z-index:2;" class="form-check-input mt-0 fs-4" type="checkbox" value="true" onclick='document.getElementById("li-<%= todo[:id]%>").classList.toggle("text-decoration-line-through")'>
+   <%# <%= button_to 'Like', todo_likes_path(@todo), method: :todo %> 
      <%= link_to todo.title, todo, id: "li-"+todo[:id].to_s,class:"text-primary text-decoration-none stretched-link fs-3"%>
       <div style="z-index:1;">
         <%= link_to "Modifier", edit_todo_path(todo[:id]), class:"btn btn-primary" %>

@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
 todos = Todo.create([
     {checked: "true",title: "Buy Groceries", description: "Go to Safeway, don't forget the coupons."},
   
