@@ -2,8 +2,8 @@
 <h1> To Do List Pour Tout Le Monde</h1>
 <div>
 <%= link_to "Nouvelle tâche", new_todo_path, class:"btn btn-success" %>
-<% if account_signed_in? %>
- <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"btn btn-secondary mr-2" %>
+<% if user_signed_in? %>
+ <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"btn btn-danger mr-2" %>
     <%else%>
 <%= link_to "Connexion", new_user_session_path, class:"btn btn-primary" %>
 <%= link_to "S'inscrire", new_user_registration_path, class:"btn btn-primary" %>
